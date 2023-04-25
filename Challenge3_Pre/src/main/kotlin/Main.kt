@@ -4,7 +4,7 @@ private operator fun String?.contains(any: Any): Boolean {
 
 fun main(array: Array<String>) {
     println("Activating")
-    Cal().addition()
+    //Cal().addition()
 }
 
 class Cal() {
