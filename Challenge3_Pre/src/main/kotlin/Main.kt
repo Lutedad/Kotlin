@@ -1,6 +1,6 @@
 //fun main(array: Array<String>) {
 //    println("Activating")
-//
+//    TESTTESTTEST
 //    while (true) {
 //        var count = 0
 //        var numbers: Array<Float> = arrayOf()
@@ -109,7 +109,7 @@ fun main() {
                 break
             } else {
                 input.toFloatOrNull()?.let {
-                    numbers += it
+                    numbers = numbers + it
                 } ?: println("Something went wrong, Try again!")
             }
         }
