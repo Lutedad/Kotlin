@@ -1,0 +1,14 @@
+Index: .idea/workspace.xml
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -16,7 +16,7 @@
+         <entry key="$PROJECT_DIR$" value="master" />
+       </map>
+     </option>
+-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Challenge_4" />
+     <option name="ROOT_SYNC" value="SYNC" />
+   </component>
+   <component name="GithubPullRequestsUISettings">
