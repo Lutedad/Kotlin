@@ -95,6 +95,7 @@
 fun main() {
     println("Activating")
     println("Testing Git")
+    println("It Worked!!!HELL YEAAAAA")
 
     while (true) {
         var count = 0
