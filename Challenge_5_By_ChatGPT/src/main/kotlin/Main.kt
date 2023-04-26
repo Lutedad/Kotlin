@@ -1,36 +1,31 @@
 fun main() {
-    println("Write your phrase") // 사용자에게 문자열을 입력받는다는 안내 메시지 출력
-    val phrase: String = readln() // 사용자 입력을 받아 phrase 변수에 할당
-    val numbers: Int = countVowels(phrase) // countVowels 함수를 호출하여 모음 개수를 반환받아 numbers 변수에 할당
+    // 사용자로부터 문자열 입력받기
+    println("Write your phrase")
+    val phrase = readln().trim()
 
-    // 모음 개수에 따른 출력문을 조건문으로 나누어 출력
-    if (numbers == 1) {
-        println("There is one vowel in $phrase")
-    } else if (numbers > 1) {
-        println("There are $numbers vowels in $phrase")
-    } else {
-        println("WHAT THE HECK? SOMETHING WENT WRONG!!")
+    // 입력받은 문자열의 모음 개수 카운트
+    val numVowels = countVowels(phrase)
+
+    // 모음 개수에 따라 출력문 결정
+    when (numVowels) {
+        0 -> println("There are no vowels in $phrase")
+        1 -> println("There is one vowel in $phrase")
+        else -> println("There are $numVowels vowels in $phrase")
     }
 }
 
-// 문자열에서 모음의 개수를 반환하는 함수
-fun countVowels(phrase: String): Int {
-    val vowels: Array<Char> = arrayOf('a', 'e', 'i', 'o', 'u') // 모음을 배열에 할당
-    val length = phrase.length // 문자열의 길이를 구하여 length 변수에 할당
+fun countVowels(str: String): Int {
+    // 모음 배열 선언
+    val vowels = arrayOf('a', 'e', 'i', 'o', 'u')
 
-    var result = 0 // 모음의 개수를 저장할 변수 초기화
-
-    // 모음 배열에서 하나씩 꺼내와서 문자열과 비교하며 모음의 개수를 셈
-    vowels.forEach {
-        var i = 0
-        while (i < length) {
-            if (phrase[i] == it) { // 현재 비교하는 문자가 모음인 경우, 모음 개수를 1 증가시키고 i를 1 증가시킴
-                result++
-                i++
-            } else {
-                i++ // 비교하는 문자가 모음이 아닌 경우, i를 1 증가시킴
-            }
+    // 문자열에서 모음 개수 카운트
+    var vowelCount = 0
+    for (char in str) {
+        if (char.lowercaseChar() in vowels) { // 소문자로 변경 후 모음 배열에 포함되는지 체크
+            vowelCount++
         }
     }
-    return result // 구해진 모음 개수 반환
+
+    // 모음 개수 반환
+    return vowelCount
 }
