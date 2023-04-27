@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1177ebc8-a66e-481b-ba3b-c10631241945" name="Changes" comment="" />
+    <list default="true" id="1177ebc8-a66e-481b-ba3b-c10631241945" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,13 +35,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/a0108/Desktop/coding/Kotlin/Challenge_9"
+    "last_opened_file_path": "C:/Users/a0108/Desktop/coding/Kotlin"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="cdfc6cc5-6335-4cc3-a951-d54235189cc6" name="Changes" comment="TestTestTest" />
+      <changelist id="1177ebc8-a66e-481b-ba3b-c10631241945" name="Changes" comment="" />
       <created>1682477857493</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
