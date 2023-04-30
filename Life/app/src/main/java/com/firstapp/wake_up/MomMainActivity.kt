@@ -12,7 +12,7 @@ class MomMainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_mom_main);
 
         findViewById<ImageButton>(R.id.btn_mom_main).setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MomSubActivity::class.java)
             startActivity(intent)
         }
         findViewById<Button>(R.id.btn_main_menu3).setOnClickListener {
