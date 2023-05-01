@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Life</string>
+    <string name="Mom">Dear Mom</string>
+    <string name="d_day">D-DAY</string>
+    <string name="d_day_plus">D+%1$d</string>
+    <string name="d_day_minus">D-%1$d</string>
+    <string name="beforeBirthday">생일때까지 기다리시오</string>
+    <string name="happy_birthday">생일 축하합니다!\n밑의 상자를 클릭해보세요!</string>
+    <string name="happy_late_birthday">생일이 지났쇼\n다시 확인하려면 \n토토를클릭하쇼!</string>
+    <string name="unknown">무언가 오류가 났네요?</string>
+    <string name="click_anywhere_to_continue">Click anywhere to continue....</string>
 </resources>

@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.firstapp.wake_up"
-        minSdk 21
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -31,7 +31,7 @@ android {
         jvmTarget = '1.8'
     }
 }
-
+//외부 오픈소스를 가져온다.
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -41,4 +41,6 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    def lottieVersion = "6.0.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 }

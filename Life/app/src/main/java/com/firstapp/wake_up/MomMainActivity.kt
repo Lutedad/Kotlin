@@ -9,7 +9,7 @@ import android.widget.ImageButton
 class MomMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mom_main);
+        setContentView(R.layout.activity_mom_main)
 
         findViewById<ImageButton>(R.id.btn_mom_main).setOnClickListener {
             val intent = Intent(this, MomSubActivity::class.java)

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="beforeBirthday">생일때까지 기다리시오</string>
+    <string name="unknown">무언가 오류가 났네요?</string>
+    <string name="click_anywhere_to_continue">Click anywhere to continue....</string>
+</resources>

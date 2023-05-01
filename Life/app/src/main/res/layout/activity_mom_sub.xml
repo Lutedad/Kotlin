@@ -23,7 +23,7 @@
         android:id="@+id/commentMomDday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="생일때까지 기다리시오"
+        android:text="@string/beforeBirthday"
         android:fontFamily="@font/hehe"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,6 +42,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.863"
-        app:srcCompat="@drawable/btnappearmomtoto" />
+        app:srcCompat="@drawable/btnappearmomtoto"
+        tools:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/giftboxmom"
+        android:layout_width="204dp"
+        android:layout_height="198dp"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.789"
+        app:srcCompat="@drawable/giftboxmom"
+        tools:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

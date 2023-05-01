@@ -8,7 +8,7 @@ import android.widget.Button
 class SubActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sub);
+        setContentView(R.layout.activity_sub)
 
         findViewById<Button>(R.id.btn_dad).setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
