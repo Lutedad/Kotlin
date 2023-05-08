@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Be Lazy!</string>
+    <string name="idk">IDK</string>
+    <string name="maintime">It\'s...xx/xx</string>
 </resources>
