@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.core.app.ActivityCompat
 
 class LogoActivity : AppCompatActivity() {
 
@@ -16,6 +17,12 @@ class LogoActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }, 3000)
+    }
+
+    override fun onBackPressed() {
+        ActivityCompat.finishAffinity(this)
+        System.runFinalization()
+        System.exit(0)
     }
 
 }

@@ -3,35 +3,41 @@ package com.lutedad.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.ImageButton
+import android.widget.TextClock
 import android.widget.TextView
 import java.text.SimpleDateFormat
 
 
-
 class MainActivity : AppCompatActivity() {
     private lateinit var MainTime: TextView
-    private lateinit var btn_image: ImageButton
+    private lateinit var BtnImage: ImageButton
+    private lateinit var clock: TextClock
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        MainTime = findViewById(R.id.main_time)
-        btn_image = findViewById(R.id.btn_main)
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
+        BtnImage = findViewById(R.id.btn_main)
+        clock = findViewById(R.id.main_time)
 
 
-        btn_image.setOnClickListener{
-            val intent = Intent(this, LogoActivity::class.java)
+        BtnImage.setOnClickListener {
+            val intent = Intent(this, MainActivity2::class.java)
             startActivity(intent)
         }
 
-        time()
+        clock.text = ("It's..."+clock.text)
     }
 
-    private fun time() {
-        val currentTime : Long = System.currentTimeMillis() // ms로 반환
-        val dataFormat4 = SimpleDateFormat("hh:mm")
-        val formatted = dataFormat4.format(currentTime)
-        MainTime.text = "It's...$formatted"
+
+
+    override fun onBackPressed() {
+        val intent = Intent(this, LogoActivity::class.java)
+        startActivity(intent)
+
     }
 }

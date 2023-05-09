@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity2"
+    android:orientation="vertical"
+    android:weightSum="2">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/backspace2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:backgroundTint="#F2EBE3"
+            android:scaleType="fitCenter"
+            android:background="@color/white"
+            android:src="@drawable/backspace" />
+
+        <ImageButton
+            android:id="@+id/btn_diary"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:backgroundTint="@color/white"
+            android:background="@color/white"
+            android:layout_marginBottom="30dp"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/fontstyle"
+            android:text="@string/how_was_your_day"
+            android:textSize="34sp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextClock
+                android:id="@+id/clock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/fontstyle"
+                android:format12Hour="hh:mm"
+                android:format24Hour="hh:mm"
+                android:text="@string/time"
+                android:textSize="70sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.08" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/btn_school"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="40dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:scaleType="fitCenter"
+            android:src="@drawable/school" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/fontstyle"
+            android:text="@string/how_was_your_school"
+            android:layout_marginTop="15dp"
+            android:textSize="34sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fontstyle"
+            android:textSize="24sp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="40dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/report_error"/>
+
+
+        <ImageButton
+            android:id="@+id/insta"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/insta"
+            android:scaleType="fitCenter"
+            android:backgroundTint="@color/white"
+            android:background="@color/white"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="30dp"
+            android:layout_marginEnd="30dp"/>
+
+        <ImageButton
+            android:id="@+id/mail"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="30dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:scaleType="fitCenter"
+            android:src="@drawable/mail" />
+    </FrameLayout>
+
+
+</LinearLayout>

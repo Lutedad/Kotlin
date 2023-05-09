@@ -2,4 +2,9 @@
     <string name="app_name">Be Lazy!</string>
     <string name="idk">IDK</string>
     <string name="maintime">It\'s...xx/xx</string>
+    <string name="time">12:30</string>
+    <string name="it_s">It\'s...</string>
+    <string name="how_was_your_day">How was your day?</string>
+    <string name="how_was_your_school">How was your school?</string>
+    <string name="report_error">Report Error</string>
 </resources>
