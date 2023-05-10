@@ -30,6 +30,7 @@
             android:textSize="60sp" />
 
         <ImageButton
+            android:id="@+id/diary_list"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center_vertical|end"
@@ -38,100 +39,52 @@
             android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
             android:src="@drawable/list" />
+
     </FrameLayout>
 
+
     <ScrollView
+        android:id="@+id/diary_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="70dp"
         android:layout_marginBottom="60dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:weightSum="1">
+        <!-- 내부 LinearLayout과 일기들을 추가하는 코드 -->
 
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.11" />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_weight="0.11"
-                android:background="@drawable/diary_inside"
-                android:fontFamily="@font/fontstyle"
-                android:gravity="center"
-                android:text="Jan 27"
-                android:textSize="17sp" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.04" />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="0.63"
-                android:background="@drawable/diary_inside"
-                android:ellipsize="end"
-                android:fontFamily="@font/fontstyle"
-                android:gravity="center"
-                android:singleLine="true"
-                android:text="이것은 테스트 입니다! 똥똥땅땅꾸꽝낑히"
-                android:textSize="20sp" />
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.11" />
-
-
-        </LinearLayout>
 
     </ScrollView>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_alignParentBottom="true"    >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/fontstyle"
-            android:textSize="24sp"
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginEnd="20dp"
-            android:text="@string/report_error"/>
+        android:layout_alignParentBottom="true">
 
 
         <ImageButton
             android:id="@+id/insta"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/insta"
-            android:scaleType="fitCenter"
-            android:backgroundTint="@color/white"
-            android:background="@color/white"
             android:layout_gravity="bottom|end"
-            android:layout_marginEnd="30dp"/>
+            android:layout_marginEnd="30dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:scaleType="fitCenter"
+            android:src="@drawable/insta" />
 
         <ImageButton
-            android:id="@+id/mail"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="end|bottom"
-            android:layout_marginEnd="100dp"
+            android:id="@+id/write_diary"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
             android:background="@color/white"
             android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
-            android:src="@drawable/mail" />
+            android:src="@drawable/pencil" />
     </FrameLayout>
 
 </RelativeLayout>

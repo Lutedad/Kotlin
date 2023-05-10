@@ -17,7 +17,7 @@ class LogoActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-        }, 3000)
+        }, 1500)
     }
 
     override fun onBackPressed() {
