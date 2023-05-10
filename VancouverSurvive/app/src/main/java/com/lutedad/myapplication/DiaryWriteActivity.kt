@@ -7,7 +7,7 @@ import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
 
-class DiaryWrite : AppCompatActivity() {
+class DiaryWriteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_diary_write)
