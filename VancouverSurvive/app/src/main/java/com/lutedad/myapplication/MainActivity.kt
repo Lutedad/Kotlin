@@ -7,11 +7,9 @@ import android.view.WindowManager
 import android.widget.ImageButton
 import android.widget.TextClock
 import android.widget.TextView
-import java.text.SimpleDateFormat
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var MainTime: TextView
     private lateinit var BtnImage: ImageButton
     private lateinit var clock: TextClock
 

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".DiaryActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/backspace_diary"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@color/white"
+            android:backgroundTint="#F2EBE3"
+            android:scaleType="fitCenter"
+            android:src="@drawable/backspace" />
+
+        <TextClock
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/fontstyle"
+            android:text="@string/time"
+            android:textSize="60sp" />
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="10dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:scaleType="fitCenter"
+            android:src="@drawable/list" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:weightSum="1">
+
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.11"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:background="@drawable/diary_inside"
+                android:layout_weight="0.11"
+                android:layout_gravity="center"
+                android:textSize="17sp"
+                android:gravity="center"
+                android:fontFamily="@font/fontstyle"
+                android:text="Jan 27"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.04"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="0.63"
+                android:background="@drawable/diary_inside"
+                android:ellipsize="end"
+                android:fontFamily="@font/fontstyle"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="이것은 테스트 입니다! 똥똥땅땅꾸꽝낑히"
+                android:textSize="20sp"/>
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.11"/>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

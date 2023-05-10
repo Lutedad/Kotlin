@@ -43,7 +43,12 @@ class MainActivity2 : AppCompatActivity() {
         }
 
         insta.setOnClickListener{
-            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/june0127_6/"))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/june0127_6/"))
+            startActivity(intent)
+        }
+
+        diary.setOnClickListener{
+            val intent = Intent(this, DiaryActivity::class.java)
             startActivity(intent)
         }
 

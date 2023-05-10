@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.core.app.ActivityCompat
+import kotlin.system.exitProcess
 
 class LogoActivity : AppCompatActivity() {
 
@@ -22,7 +23,7 @@ class LogoActivity : AppCompatActivity() {
     override fun onBackPressed() {
         ActivityCompat.finishAffinity(this)
         System.runFinalization()
-        System.exit(0)
+        exitProcess(0)
     }
 
 }
