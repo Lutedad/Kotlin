@@ -1,5 +1,4 @@
 package com.lutedad.myapplication
-
 import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,8 +9,13 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import com.lutedad.myapplication.DiaryReWriteActivity.Mysingleton.readTextFile
 import java.io.File
 import java.io.FileWriter
+import java.io.IOException
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 class DiaryReWriteActivity : AppCompatActivity() {
 
@@ -36,12 +40,16 @@ class DiaryReWriteActivity : AppCompatActivity() {
 
         // DiaryReWriteActivity에서 인텐트 데이터 사용
         val intent = intent
-        val dateD = intent.getStringExtra("date")
+        val dateD = try {
+            intent.getStringExtra("date")
+        }catch (ecp : ExceptionInInitializerError){
+            date()
+        }
 
         val directory = "${this.filesDir.path}/com.lutedad.myapplication"
 
         // 파일 읽고 창에 띄우기
-        val (titleDiary, content) = DiaryWriteActivity.Mysingleton.readTextFile("$directory/$dateD")
+        val (titleDiary, content) = readTextFile("$directory/$dateD")
         dateTitle.text = Editable.Factory.getInstance().newEditable(titleDiary)
         dateContent.text = Editable.Factory.getInstance().newEditable(content)
 
@@ -62,6 +70,32 @@ class DiaryReWriteActivity : AppCompatActivity() {
     override fun onBackPressed() {
         showLeaveConfirmationDialog()
     }
+
+    private fun date(): String {
+        val currentDate = LocalDate.now()
+        val formatter = DateTimeFormatter.ofPattern("MMM dd", Locale.ENGLISH)
+        return currentDate.format(formatter)
+    }
+
+object Mysingleton{
+    fun readTextFile(path: String): Pair<String, String> {
+        try {
+            val file = File(path)
+            if (file.exists()) {
+                val lines = file.readLines()
+                val title = lines.firstOrNull() ?: ""
+                val content = lines.drop(1).joinToString("\n")
+
+                return Pair(title, content)
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        return Pair("", "")
+    }
+}
+
 
     private fun showSaveConfirmationDialog(
         directory: String,

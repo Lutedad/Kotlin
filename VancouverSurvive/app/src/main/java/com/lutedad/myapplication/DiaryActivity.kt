@@ -5,7 +5,7 @@ import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import com.lutedad.myapplication.DiaryWriteActivity.Mysingleton.readTextFile
+import com.lutedad.myapplication.DiaryReWriteActivity.Mysingleton.readTextFile
 import android.view.Gravity
 import android.view.WindowManager
 import android.widget.Button
@@ -49,7 +49,7 @@ class DiaryActivity : AppCompatActivity() {
         }
 
         writeDiary.setOnClickListener {
-            val intent = Intent(this, DiaryWriteActivity::class.java)
+            val intent = Intent(this, DiaryReWriteActivity::class.java)
             startActivity(intent)
         }
 

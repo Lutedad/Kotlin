@@ -16,13 +16,6 @@
             android:name=".DiaryReWriteActivity"
             android:exported="false" />
         <activity
-            android:name=".DiaryWriteActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".DiaryActivity"
             android:exported="false">
             <meta-data
