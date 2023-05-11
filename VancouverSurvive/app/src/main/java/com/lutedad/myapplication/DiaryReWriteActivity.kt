@@ -2,6 +2,7 @@ package com.lutedad.myapplication
 
 import android.content.DialogInterface
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.view.WindowManager
@@ -9,17 +10,10 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import com.lutedad.myapplication.DiaryWriteActivity.Mysingleton.date
-import com.lutedad.myapplication.DiaryWriteActivity.Mysingleton.readTextFile
 import java.io.File
 import java.io.FileWriter
-import java.io.IOException
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.util.*
 
-class DiaryWriteActivity : AppCompatActivity() {
+class DiaryReWriteActivity : AppCompatActivity() {
 
     private lateinit var dateDiary: TextView
     private lateinit var dateContent: EditText
@@ -27,11 +21,12 @@ class DiaryWriteActivity : AppCompatActivity() {
     private lateinit var submit: ImageButton
     private lateinit var backspace: ImageButton
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_diary_write)
+        setContentView(R.layout.activity_diary_re_write)
 
         submit = findViewById(R.id.submit_diary)
         dateDiary = findViewById(R.id.date_diary)
@@ -39,13 +34,14 @@ class DiaryWriteActivity : AppCompatActivity() {
         dateTitle = findViewById(R.id.title_diary)
         backspace = findViewById(R.id.backspace_diary)
 
-        val dateIs = date()
-        dateDiary.text = dateIs
+        // DiaryReWriteActivity에서 인텐트 데이터 사용
+        val intent = intent
+        val dateD = intent.getStringExtra("date")
 
         val directory = "${this.filesDir.path}/com.lutedad.myapplication"
 
         // 파일 읽고 창에 띄우기
-        val (titleDiary, content) = readTextFile("$directory/$dateIs")
+        val (titleDiary, content) = DiaryWriteActivity.Mysingleton.readTextFile("$directory/$dateD")
         dateTitle.text = Editable.Factory.getInstance().newEditable(titleDiary)
         dateContent.text = Editable.Factory.getInstance().newEditable(content)
 
@@ -57,10 +53,12 @@ class DiaryWriteActivity : AppCompatActivity() {
             val titleDiarySubmit = dateTitle.text.toString()
             val contentDiary = dateContent.text.toString()
 
-            showSaveConfirmationDialog(directory, dateIs, titleDiarySubmit, contentDiary)
+            if (dateD != null) {
+                showSaveConfirmationDialog(directory, dateD, titleDiarySubmit, contentDiary)
+            }
         }
-    }
 
+    }
     override fun onBackPressed() {
         showLeaveConfirmationDialog()
     }
@@ -113,32 +111,5 @@ class DiaryWriteActivity : AppCompatActivity() {
         }
     }
 
-    object Mysingleton {
-
-        fun date(): String {
-            val currentDate = LocalDate.now()
-            val formatter = DateTimeFormatter.ofPattern("MMM dd", Locale.ENGLISH)
-            return currentDate.format(formatter)
-        }
-
-
-        fun readTextFile(path: String): Pair<String, String> {
-            try {
-                val file = File(path)
-                if (file.exists()) {
-                    val lines = file.readLines()
-                    val title = lines.firstOrNull() ?: ""
-                    val content = lines.drop(1).joinToString("\n")
-
-                    return Pair(title, content)
-                }
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-
-            return Pair("", "")
-        }
-    }
 
 }
-

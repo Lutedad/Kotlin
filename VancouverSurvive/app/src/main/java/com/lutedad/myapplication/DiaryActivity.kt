@@ -5,7 +5,7 @@ import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
+import com.lutedad.myapplication.DiaryWriteActivity.Mysingleton.readTextFile
 import android.view.Gravity
 import android.view.WindowManager
 import android.widget.Button
@@ -14,6 +14,7 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.Space
 import androidx.core.content.res.ResourcesCompat
+import java.io.File
 
 class DiaryActivity : AppCompatActivity() {
 
@@ -52,9 +53,9 @@ class DiaryActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        diaryMaker()
 
 
-        diarymaker()
     }
 
 
@@ -64,13 +65,23 @@ class DiaryActivity : AppCompatActivity() {
 
     }
 
-    private fun diarymaker() {
-        val numDiaries = 50 // 일기 개수
+    private fun diaryMaker() {
+
+        var dateD: String
+        val directory = File("${this.filesDir.path}/com.lutedad.myapplication")  // 특정 위치의 디렉토리 경로
+        val fileNames = directory.list()  // 디렉토리 내의 파일 이름 배열
+        var titleD : String?
+
+
         val typeface: Typeface? = ResourcesCompat.getFont(this, R.font.hehe)
         val linearLayout = LinearLayout(this)
         linearLayout.orientation = LinearLayout.VERTICAL
 
-        for (i in 0 until numDiaries) {
+        for (filename in fileNames!!) {
+
+            dateD = filename
+            titleD = readTextFile("$directory/$dateD").first
+
             val buttonLayout = LinearLayout(this)
             val layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
@@ -96,11 +107,16 @@ class DiaryActivity : AppCompatActivity() {
                 0.11f
             )
             dateButton.layoutParams = dateButtonParams
-            dateButton.text = "Jan\n0${i}"
+            dateButton.text = dateD
             dateButton.setBackgroundResource(R.drawable.diary_inside)
             dateButton.gravity = Gravity.CENTER
             dateButton.typeface = typeface
             dateButton.textSize = 17F
+//            dateButton.setOnClickListener {
+//                val intent = Intent(this, TODO()::class.java)
+//                intent.putExtra("date", dateD)
+//                startActivity(intent)
+//            }
 
             val space2 = Space(this)
             val space2Params = LinearLayout.LayoutParams(
@@ -117,13 +133,26 @@ class DiaryActivity : AppCompatActivity() {
                 0.63f
             )
             contentButton.layoutParams = contentButtonParams
-            contentButton.text = "이것은 테스트입니다! 똥똥땅땅꾸꽝낑히"
+            if (titleD != ""){
+                contentButton.text = titleD
+            }else {
+                contentButton.text = "Empty Title"
+            }
+
             contentButton.setBackgroundResource(R.drawable.diary_inside)
             contentButton.gravity = Gravity.CENTER
             contentButton.typeface = typeface
+            contentButton.tag = dateD
             contentButton.textSize = 20F
             contentButton.setSingleLine()
             contentButton.ellipsize = TextUtils.TruncateAt.END
+            // 버튼 클릭 이벤트 처리
+            contentButton.setOnClickListener {
+                val intent = Intent(this, DiaryReWriteActivity::class.java)
+                intent.putExtra("date", dateD)
+                startActivity(intent)
+            }
+
 
             buttonLayout.addView(space1)
             buttonLayout.addView(dateButton)
