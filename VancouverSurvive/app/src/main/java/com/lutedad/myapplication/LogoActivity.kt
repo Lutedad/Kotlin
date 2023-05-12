@@ -26,4 +26,6 @@ class LogoActivity : AppCompatActivity() {
         exitProcess(0)
     }
 
+
+
 }

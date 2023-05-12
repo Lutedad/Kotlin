@@ -1,19 +1,18 @@
 package com.lutedad.myapplication
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import com.lutedad.myapplication.DiaryReWriteActivity.Mysingleton.readTextFile
 import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.LinearLayout
-import android.widget.ScrollView
-import android.widget.Space
+import android.widget.*
 import androidx.core.content.res.ResourcesCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import java.io.File
 
 class DiaryActivity : AppCompatActivity() {
@@ -24,10 +23,12 @@ class DiaryActivity : AppCompatActivity() {
     private lateinit var writeDiary: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_diary)
 
-        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
 
 
         backspace = findViewById(R.id.backspace_diary)
@@ -45,11 +46,12 @@ class DiaryActivity : AppCompatActivity() {
         // 리스트 버튼 클릭시 리스트 나오게 하기.
 
         list.setOnClickListener {
-
+            TODO()
         }
 
         writeDiary.setOnClickListener {
             val intent = Intent(this, DiaryReWriteActivity::class.java)
+            intent.putExtra("date", DiaryReWriteActivity.Mysingleton.date())
             startActivity(intent)
         }
 
@@ -69,7 +71,7 @@ class DiaryActivity : AppCompatActivity() {
 
         var dateD: String
         val directory = File("${this.filesDir.path}/com.lutedad.myapplication")  // 특정 위치의 디렉토리 경로
-        val fileNames = directory.list()  // 디렉토리 내의 파일 이름 배열
+        var fileNames = directory.list()  // 디렉토리 내의 파일 이름 배열
         var titleD : String?
 
 
@@ -77,10 +79,18 @@ class DiaryActivity : AppCompatActivity() {
         val linearLayout = LinearLayout(this)
         linearLayout.orientation = LinearLayout.VERTICAL
 
+
+        //파일이 존재하지 않을때 null 오류 방지
+        if (fileNames.isNullOrEmpty()){
+            DiaryReWriteActivity.Mysingleton.writeTextFile(directory.toString(), DiaryReWriteActivity.Mysingleton.date(), "Your First Diary!","What's Going On?")
+            fileNames = directory.list()
+        }
+
+        //파일을 읽어온 뒤, 각각에 상응하는 버튼들 생성
         for (filename in fileNames!!) {
 
             dateD = filename
-            titleD = readTextFile("$directory/$dateD").first
+            titleD = DiaryReWriteActivity.Mysingleton.readTextFile("$directory/$dateD").first
 
             val buttonLayout = LinearLayout(this)
             val layoutParams = LinearLayout.LayoutParams(
@@ -112,11 +122,7 @@ class DiaryActivity : AppCompatActivity() {
             dateButton.gravity = Gravity.CENTER
             dateButton.typeface = typeface
             dateButton.textSize = 17F
-//            dateButton.setOnClickListener {
-//                val intent = Intent(this, TODO()::class.java)
-//                intent.putExtra("date", dateD)
-//                startActivity(intent)
-//            }
+            dateButton.setOnClickListener {}
 
             val space2 = Space(this)
             val space2Params = LinearLayout.LayoutParams(
